@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RadarNet</title>
+    <link rel="shortcut icon" href="imagem/4328606.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header >
+      
+    </header>
+    <main class="main">
+        <h1 class="logo">RadarNet</h1>
+        <input type="number" id="km" placeholder="Velocidade em Km/h">
+        <input class="verificar" type="button" value="Verificar" onclick="calcular()">
+        <section id="res"> 
+            
+        </section>
+        <article>
+            <img class="imagem" src="imagem/icone.png" alt="icone">
+        </article>
+        
+        
+    </main>
+    
+    <script>
+
+        function calcular() {
+            var km = document.getElementById('km') 
+            var velocidade = Number(km.value)
+            var multa = (velocidade - 60) * 5.50
+            var multa2 = (30 - velocidade) * 5.50
+            
+            document.getElementById('res').innerHTML = `<p> Velocidade do automóvel ao passar no radar <strong>: ${velocidade} Km/h <strong/> <p/>`
+            if (velocidade > 60){
+                document.getElementById('res').innerHTML += `<p> O automóvel ultrapassou o limite de velocidade, deverá ser aplicada uma  multa  no condutor de <strong>R$ ${multa} reais<strong/>.<p/>`
+                }
+            else if (velocidade < 30){
+                document.getElementById('res').innerHTML += `<p> O automóvel está abaixo da velocidade minima permitida, deverá ser aplicada uma  multa  no condutor de <strong>R$ ${multa2} reais<strong/>.<p/>`
+                } 
+            else {
+                    document.getElementById('res').innerHTML += `<p> O condutor respeitou o limite de velocidade.<p/>`
+                }
+            document.getElementById('res').innerHTML += `<p><strong> RadarNet sendo seus olhos, para punir quem não abedece as normas de segurança. <strong/><p/>`
+
+        }
+    </script>
+</body>
+</html>
